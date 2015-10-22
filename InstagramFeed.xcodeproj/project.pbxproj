@@ -13,6 +13,7 @@
 		BF8CD08C1BD98EAA00DC1E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8CD08A1BD98EAA00DC1E1D /* Main.storyboard */; };
 		BF8CD08E1BD98EAA00DC1E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8CD08D1BD98EAA00DC1E1D /* Assets.xcassets */; };
 		BF8CD0911BD98EAA00DC1E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8CD08F1BD98EAA00DC1E1D /* LaunchScreen.storyboard */; };
+		BF8CD09A1BD9954400DC1E1D /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD0991BD9954400DC1E1D /* ImageTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		C444A2ACB5FA616F8A494642 /* libPods-InstagramFeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 183472B5A0B84ABCDD5A9674 /* libPods-InstagramFeed.a */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,8 @@
 		BF8CD08D1BD98EAA00DC1E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF8CD0901BD98EAA00DC1E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF8CD0921BD98EAA00DC1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF8CD0981BD9954400DC1E1D /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		BF8CD0991BD9954400DC1E1D /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				BF8CD08F1BD98EAA00DC1E1D /* LaunchScreen.storyboard */,
 				BF8CD0921BD98EAA00DC1E1D /* Info.plist */,
 				BF8CD0811BD98EAA00DC1E1D /* Supporting Files */,
+				BF8CD0981BD9954400DC1E1D /* ImageTableViewCell.h */,
+				BF8CD0991BD9954400DC1E1D /* ImageTableViewCell.m */,
 			);
 			path = InstagramFeed;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF8CD0891BD98EAA00DC1E1D /* PhotosViewController.m in Sources */,
+				BF8CD09A1BD9954400DC1E1D /* ImageTableViewCell.m in Sources */,
 				BF8CD0861BD98EAA00DC1E1D /* AppDelegate.m in Sources */,
 				BF8CD0831BD98EAA00DC1E1D /* main.m in Sources */,
 			);

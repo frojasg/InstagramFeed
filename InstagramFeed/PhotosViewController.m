@@ -7,9 +7,12 @@
 //
 
 #import "PhotosViewController.h"
+#import "ImageTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
-@interface PhotosViewController ()
-
+@interface PhotosViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *images;
 @end
 
 @implementation PhotosViewController
@@ -18,6 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self fetchPhotos];
 }
 
@@ -50,6 +55,8 @@
                                                                                     options:kNilOptions
                                                                                       error:&jsonError];
                                                     NSLog(@"Response: %@", responseDictionary);
+                                                    self.images = responseDictionary[@"data"];
+                                                    [self.tableView reloadData];
                                                 } else {
                                                     NSLog(@"An error occurred: %@", error.description);
                                                 }
@@ -57,5 +64,34 @@
     [task resume];
 
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.images count];
+}
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSDictionary *image = self.images[indexPath.row];
+//    return image[@"images"][@"thumbnail"][@"height"];
+//}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath; {
+    NSString *cellText = [NSString stringWithFormat: @"Section %ld Row: %ld", indexPath.section, indexPath.row];
+    NSLog(@"%@", cellText);
+
+    ImageTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"instagramCell"];
+//    ImageTableViewCell *cell = [[ImageTableViewCell alloc] init];
+    NSDictionary *image = self.images[indexPath.row];
+
+
+    NSURL *imageUrl = [[NSURL alloc] initWithString: image[@"images"][@"standard_resolution"][@"url"]];
+    NSLog(@"trying to load %@", image[@"images"][@"standard_resolution"][@"url"]);
+    [cell.instagramImageView setImageWithURL:imageUrl];
+
+    return cell;
+}
+
 
 @end
