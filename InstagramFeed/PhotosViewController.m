@@ -9,6 +9,7 @@
 #import "PhotosViewController.h"
 #import "ImageTableViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "PhotoDetailsViewController.h"
 
 @interface PhotosViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,6 +30,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 - (void) fetchPhotos {
@@ -63,6 +69,19 @@
                                             }];
     [task resume];
 
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    PhotoDetailsViewController *photoDetailsViewController = [segue destinationViewController];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSDictionary *image = self.images[indexPath.row];
+    
+    
+    NSURL *imageUrl = [[NSURL alloc] initWithString: image[@"images"][@"standard_resolution"][@"url"]];
+    NSLog(@"Into Details View");
+    NSLog(@"trying to load %@", image[@"images"][@"standard_resolution"][@"url"]);
+    photoDetailsViewController.instagramImageURL = imageUrl;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
