@@ -6,13 +6,13 @@
 //  Copyright © 2015 Francisco Rojas. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PhotosViewController.h"
 
-@interface ViewController ()
+@interface PhotosViewController ()
 
 @end
 
-@implementation ViewController
+@implementation PhotosViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
